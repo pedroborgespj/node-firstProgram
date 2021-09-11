@@ -1,0 +1,26 @@
+{
+  "name": "firstprogram",
+  "version": "1.0.0",
+  "description": "Pacote de teste para o primeiro programa em NodeJS",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pedroborgespj/node-firstProgram.git"
+  },
+  "keywords": [
+    "url",
+    "http"
+  ],
+  "author": "Pedro Borges",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pedroborgespj/node-firstProgram/issues"
+  },
+  "homepage": "https://github.com/pedroborgespj/node-firstProgram#readme",
+  "dependencies": {
+    "query-string": "^7.0.1"
+  }
+}
