@@ -12,3 +12,7 @@
 - Backend
     - NodeJS
     - Salvar em um arquivo as informações do usário
+
+* Premissas:
+    - Não usar frameworks
+    - Utilizar arquivos ao invés de banco de dados
