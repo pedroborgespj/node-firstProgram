@@ -10,8 +10,12 @@ const port = 3000;
 // Implementação da regra de negócio
 const server = http.createServer((req, res) => {
 
+    // Receber informações do usuário
+    const params = queryString.parse(url.parse(req.url, true).search);
+    console.log(params);
 
 
+    
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
     res.end('Hello World');
