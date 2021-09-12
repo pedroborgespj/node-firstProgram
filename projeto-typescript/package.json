@@ -12,5 +12,8 @@
     "criacao"
   ],
   "author": "Pedro Borges",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.4.3"
+  }
 }
