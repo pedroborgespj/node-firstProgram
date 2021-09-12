@@ -30,16 +30,16 @@ const server = createServer((request: IncomingMessage, response: ServerResponse)
         response.setHeader('Content-Type', 'text/plain');
         response.end(resposta);
     }
-    // Selecionar usuario
-    // else if (urlparse.pathname == '/selecionar-usuario') {
-    //     readFile('users/' + params.id + '.txt', function(err, data) {
-    //         resposta = data;
+    //Selecionar usuario
+    else if (urlparse.pathname == '/selecionar-usuario') {
+        readFile('users/' + params.id + '.txt', function(err, data) {
+            resposta = data;
 
-    //         response.statusCode = 200;
-    //         response.setHeader('Content-Type', 'application/json');
-    //         response.end(resposta);
-    //     });
-    // }
+            response.statusCode = 200;
+            response.setHeader('Content-Type', 'application/json');
+            response.end(resposta);
+        });
+    }
 
 });
 

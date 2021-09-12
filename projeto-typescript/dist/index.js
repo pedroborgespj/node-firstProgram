@@ -44,15 +44,15 @@ var server = (0, http_1.createServer)(function (request, response) {
         response.setHeader('Content-Type', 'text/plain');
         response.end(resposta);
     }
-    // Selecionar usuario
-    // else if (urlparse.pathname == '/selecionar-usuario') {
-    //     readFile('users/' + params.id + '.txt', function(err, data) {
-    //         resposta = data;
-    //         response.statusCode = 200;
-    //         response.setHeader('Content-Type', 'application/json');
-    //         response.end(resposta);
-    //     });
-    // }
+    //Selecionar usuario
+    else if (urlparse.pathname == '/selecionar-usuario') {
+        (0, fs_1.readFile)('users/' + params.id + '.txt', function (err, data) {
+            resposta = data;
+            response.statusCode = 200;
+            response.setHeader('Content-Type', 'application/json');
+            response.end(resposta);
+        });
+    }
 });
 // Execução
 server.listen(port, function () {
