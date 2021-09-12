@@ -1,7 +1,7 @@
 // Incluindo uma biblioteca
 const http = require('http');
 const url = require('url');
-const queryString = require('./projeto-javascript/node_modules/query-string');
+const queryString = require('query-string');
 const fs = require('fs');
 
 // Definição de endereço / URL
