@@ -31,17 +31,16 @@ const server = createServer((request: IncomingMessage, response: ServerResponse)
         response.end(resposta);
     }
     // Selecionar usuario
-    else if (urlparse.pathname == '/selecionar-usuario') {
-        readFile('users/' + params.id + '.txt', function(err, data) {
-            resposta = data;
+    // else if (urlparse.pathname == '/selecionar-usuario') {
+    //     readFile('users/' + params.id + '.txt', function(err, data) {
+    //         resposta = data;
 
-            response.statusCode = 200;
-            response.setHeader('Content-Type', 'application/json');
-            response.end(resposta);
-        });
-    }
+    //         response.statusCode = 200;
+    //         response.setHeader('Content-Type', 'application/json');
+    //         response.end(resposta);
+    //     });
+    // }
 
-    response.end("Hello World");
 });
 
 // Execução
