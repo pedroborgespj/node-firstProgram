@@ -8,7 +8,13 @@ import * as fs from 'fs';
 const port = 5000;
 
 const server = createServer((request: IncomingMessage, response: ServerResponse) => {
-    
+
+    const urlparse = url.parse(request.url ? request.url : '', true);
+
+    //Receber informações do usuário
+    const params = queryString.parse(urlparse.search ? urlparse.search : '');
+
+    response.end("Hello World");
 });
 
 // Execução
