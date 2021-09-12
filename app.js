@@ -25,7 +25,7 @@ const server = http.createServer((req, res) => {
             console.log('Saved!');
         });
 
-        resposta = 'Usuario criado com sucesso';
+        resposta = 'Usuario criado / atualizado com sucesso';
 
         res.statusCode = 200;
         res.setHeader('Content-Type', 'text/plain');
