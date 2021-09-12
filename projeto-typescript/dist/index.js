@@ -21,14 +21,38 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // Importação de bibliotecas
 var http_1 = require("http");
-var queryString = __importStar(require("query-string"));
+var query_string_1 = require("query-string");
 var url = __importStar(require("url"));
+var fs_1 = require("fs");
 //Definição de porta
 var port = 5000;
 var server = (0, http_1.createServer)(function (request, response) {
     var urlparse = url.parse(request.url ? request.url : '', true);
+    var resposta;
     //Receber informações do usuário
-    var params = queryString.parse(urlparse.search ? urlparse.search : '');
+    var params = (0, query_string_1.parse)(urlparse.search ? urlparse.search : '');
+    // Criar um usuario && Atualizar um usuario
+    if (urlparse.pathname == '/criar-atualizar-usuario') {
+        // Salvas as informações em um arquivo
+        (0, fs_1.writeFile)('users/' + params.id + '.txt', JSON.stringify(params), function (err) {
+            if (err)
+                throw err;
+            console.log('Saved!');
+        });
+        resposta = 'Usuario criado / atualizado com sucesso';
+        response.statusCode = 200;
+        response.setHeader('Content-Type', 'text/plain');
+        response.end(resposta);
+    }
+    // Selecionar usuario
+    else if (urlparse.pathname == '/selecionar-usuario') {
+        (0, fs_1.readFile)('users/' + params.id + '.txt', function (err, data) {
+            resposta = data;
+            response.statusCode = 200;
+            response.setHeader('Content-Type', 'application/json');
+            response.end(resposta);
+        });
+    }
     response.end("Hello World");
 });
 // Execução
