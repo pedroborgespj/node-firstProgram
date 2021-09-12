@@ -9,6 +9,9 @@ const port = 5000;
 
 const server = createServer((request: IncomingMessage, response: ServerResponse) => {
     
-})
+});
 
 // Execução
+server.listen( port, () => {
+    console.log(`Server running on port ${port}`);
+});
