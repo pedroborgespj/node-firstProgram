@@ -2,7 +2,7 @@
 import { createServer, IncomingMessage, ServerResponse } from 'http';
 import { parse } from 'query-string';
 import * as url from 'url';
-import { writeFile, readFile } from 'fs';
+import { writeFile, readFile, unlink } from 'fs';
 
 //Definição de porta
 const port = 5000;
@@ -37,6 +37,18 @@ const server = createServer((request: IncomingMessage, response: ServerResponse)
 
             response.statusCode = 200;
             response.setHeader('Content-Type', 'application/json');
+            response.end(resposta);
+        });
+    }
+    // Remover o usuario
+    else if (urlparse.pathname == '/remover-usuario') {
+        unlink('users/' + params.id + '.txt', function (err) {
+            console.log('File deleted!');
+
+            resposta = err ? 'Usuario nao encontrado.' :'Usuario removido com sucesso';
+
+            response.statusCode = 200;
+            response.setHeader('Content-Type', 'text/plain');
             response.end(resposta);
         });
     }
